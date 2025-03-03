@@ -1,0 +1,19 @@
+<% allEvents.forEach(event => { %>
+
+    <div class="info-section__container" id="archiveEdition-section-<%=event.eventEdition%>" style="margin-top: 5rem">
+        <div class="info-title__container">
+            <h2 class="info-title">
+                <%= event.eventEdition %>
+            </h2>
+        </div>
+        <hr>
+        <div class="info-description__container">
+            <p class="info-description">
+                <ul>
+                    <li> Results: <a href="<%=event.resultsLink%>"> <%= event.resultsLink.split('/')[2] %> </a> </li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+<% }) %>

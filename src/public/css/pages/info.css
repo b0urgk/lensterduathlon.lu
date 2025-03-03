@@ -1,0 +1,233 @@
+/* Responsive design */
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    .quick-nav {
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+        width: 160px;
+    }
+}
+
+.quick-nav {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    width: 200px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.quick-nav-header {
+    background-color: var(--navbar-hover);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.quick-nav-header h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.quick-nav-toggle {
+    background: none;
+    border: none;
+    color: var(--light-text);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.quick-nav-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.quick-nav.expanded .quick-nav-content {
+    max-height: 500px;
+}
+
+.quick-nav-list {
+    list-style: none;
+    padding: 10px 15px;
+    margin: 0;
+}
+
+.quick-nav-list li {
+    margin-bottom: 8px;
+}
+
+.quick-nav-list li:last-child {
+    margin-bottom: 0;
+}
+
+.quick-nav-list a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 5px 0;
+    transition: all 0.2s ease;
+}
+
+.quick-nav-list a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--animation-duration) ease;
+    border: 2px solid var(--secondary-color);
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--light-text);
+    border-color: var(--light-text);
+}
+
+/* Section Styling */
+section {
+    padding: 3rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    padding: 2rem;
+    height: 100%;
+    transition: transform var(--animation-duration) ease, box-shadow var(--animation-duration) ease;
+    border-top: 3px solid var(--primary-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--light-grey);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* Rules Section */
+.rules-list {
+    list-style: none;
+}
+
+.rules-list li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.rules-list li::before {
+    content: "- ";
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Registration */
+.registration-info {
+    background-color: var(--section-bg-1);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.registration-info ul {
+    list-style: none;
+}
+
+.registration-info li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.registration-info li::before {
+    content: "✓";
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.btn-registration {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--animation-duration) ease;
+    margin-top: 1rem;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-registration:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}

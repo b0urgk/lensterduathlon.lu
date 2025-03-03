@@ -1,0 +1,16 @@
+:root {
+    --primary-color: #00897b; /* More vibrant teal */
+    --secondary-color: #4fc3f7; /* Brighter blue */
+    --accent-color: #b9f6ca; /* Lighter mint green */
+    --text-color: #333;
+    --light-text: #fff;
+    --countdown-bg: #00acc1; /* Vibrant cyan */
+    --animation-duration: 0.8s;
+    --navbar-bg: linear-gradient(to right, #00695c, #00897b); /* Teal gradient */
+    --navbar-text: #fff;
+    --navbar-hover: #00695c; /* Amber accent */
+    --section-bg-1: #e0f7fa; /* Light cyan */
+    --section-bg-2: #e0f2f1; /* Light teal */
+    --footer-bg: #263238; /* Blue grey */
+    --light-grey: #747577;
+}

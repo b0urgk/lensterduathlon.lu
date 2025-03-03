@@ -1,0 +1,16 @@
+<div id="volunteer-form__container">
+    <form action="/api/auth/submit-volunteer-application" method="POST" style="margin-top: 5rem" id="volunteer-input__form">
+
+        <h1 id="volunteer-form__title">  <%=  %> </h1>
+
+        <label for="volunteer-name__input" class="volunteer-form__label"> Name: </label>
+        <input type="text" id="volunteer-name__input" class="volunteer-form__input" name="name" required> <br>
+
+
+        <label for="volunteer-email__input" class="volunteer-form__label"> Email: </label>
+        <input type="email" id="volunteer-email__input" class="volunteer-form__input" name="email" required> <br>
+
+
+        <button type="submit" id="volunteer-button"> volunteer </button>
+    </form>
+</div>
