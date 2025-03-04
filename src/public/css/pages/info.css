@@ -10,6 +10,16 @@
         width: 160px;
     }
 }
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
 
 .quick-nav {
     position: fixed;
@@ -166,7 +176,8 @@ section {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 320px);
+    justify-content: center;
     gap: 2rem;
 }
 
@@ -230,4 +241,9 @@ section {
 .btn-registration:hover {
     background-color: transparent;
     color: var(--primary-color);
+}
+@media (max-width: 768px) {
+    .quick-nav{
+        display: none;
+    }
 }

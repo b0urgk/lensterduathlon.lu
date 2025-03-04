@@ -23,105 +23,6 @@
 </head>
 <body>
 
-<% if (user){ %>
-
-    <script>
-
-
-
-
-        document.addEventListener('DOMContentLoaded', () => {
-
-            let editableElements = document.querySelectorAll('[editable]');
-
-            let replacements = {
-                "&break;": "<br>",
-                "&bold;": "<b>",
-                "&boldST;": "</b>",
-                "&eventDate;": "<%= new Intl.DateTimeFormat('de-DE').format(new Date(eventData.eventDate)) %>"
-            };
-
-            editableElements.forEach((element) => {
-
-
-                element.addEventListener('dblclick', () => {
-
-                    let p = element.firstElementChild;
-                    let originalText = p.innerHTML;
-
-                    if (p.getAttribute('contenteditable') === 'true') return;
-
-                    Object.keys(replacements).forEach(key => {
-                        const regex = new RegExp(replacements[key], 'g');
-                        p.innerHTML = p.innerHTML.replace(regex, key)
-                    });
-
-
-                    p.setAttribute('contenteditable', true);
-                    p.focus();
-
-                    let saveButton = document.createElement('button');
-                    saveButton.innerText = 'Save';
-                    saveButton.classList.add('saveButton')
-
-                    element.appendChild(saveButton);
-
-
-                    function stopEditing(){
-                        p.setAttribute('contenteditable', false)
-                        saveButton.remove();
-                    }
-
-                    function handleKeyPress(event){
-                        if(event.key === 'Escape'){
-                            stopEditing();
-                            document.removeEventListener('keydown', handleKeyPress);
-                        }
-                    }
-
-                    document.addEventListener('keydown', handleKeyPress);
-
-                    saveButton.addEventListener('click', async () => {
-                        let newText = p.innerText;
-
-                        Object.keys(replacements).forEach(key => {
-                            if(key === '&eventDate;') return
-                            const regex = new RegExp(key, 'g');
-                            newText = newText.replace(regex, replacements[key]);
-                        });
-
-
-                        const isEventData = element.hasAttribute('event-data')
-                        const dbKeyTag = element.getAttribute('cms-id');
-
-                        console.log(newText)
-
-                        const response = await fetch('/api/updateContentLocale', {
-                            method: "POST",
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                site: '<%= pageName %>',
-                                lang: '<%= lang %>',
-                                type: `${isEventData?'eventData':'content'}`,
-                                key: dbKeyTag,
-                                value: newText
-                            }),
-                        })
-                        console.log( await response.json())
-                        console.log(newText);
-                        stopEditing(p, saveButton);
-                    })
-                })
-
-            })
-        })
-
-    </script>
-
-<% }%>
-
 <!-- Header Section -->
 <header>
     <%- include('../partials/header.ejs') %>
@@ -138,9 +39,9 @@
 </footer>
 <!-- Mobile logo container at bottom of screen -->
 <div class="mobile-logo-container">
-    <div class="house-shape">
-        <img src="/public/images/kb-logo.jpeg" alt="Logo" class="mobile-logo-image">
-    </div>
+        <div class="house-shape">
+            <img src="/public/images/kb-logo.jpeg" alt="Logo" class="mobile-logo-image">
+        </div>
 </div>
 </body>
 </html>

@@ -102,7 +102,7 @@ nav ul li {
     margin-left: 1.5rem;
 }
 
-nav ul li a {
+nav ul li > a {
     text-decoration: none;
     color: var(--navbar-text);
     font-weight: 600;
@@ -112,7 +112,7 @@ nav ul li a {
     position: relative;
 }
 
-nav ul li a:hover {
+nav ul li > a:hover {
     color: var(--light-text);
     background-color: var(--navbar-hover);
     transform: translateY(-3px);
@@ -167,6 +167,47 @@ nav ul li a:hover {
 .hamburger.open span:nth-child(3) {
     top: 8px;
     transform: rotate(-135deg);
+}
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    font-weight: bold;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--primary-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--navbar-hover);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* Footer */
@@ -264,29 +305,13 @@ footer {
     font-size: 0.8rem;
 }
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 1400px){
     header {
         flex-direction: column;
         padding: 1rem;
         align-items: flex-start;
         width: 100%; /* Full width on mobile */
     }
-
-    .logo-container {
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Hide desktop logo and show mobile logo at bottom */
-    .desktop-logo {
-        display: none !important;
-    }
-
-    .mobile-logo-container {
-        display: block !important;
-    }
-
     .hamburger {
         display: block;
     }
@@ -316,22 +341,40 @@ footer {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    nav ul li a {
+    nav ul li > a {
         display: block;
         padding: 10px;
         border-radius: 0;
         background: none;
     }
 
-    nav ul li a:hover {
+    nav ul li > a:hover {
         transform: none;
         padding-left: 15px;
         background-color: rgba(255, 255, 255, 0.1);
     }
 
+    .dropdown{
+        padding-left: 10px;
+    }
+    .logo-container {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Hide desktop logo and show mobile logo at bottom */
+    .desktop-logo {
+        display: none !important;
+    }
+
+    .mobile-logo-container {
+        display: block !important;
+    }
+
+
     .footer-column {
         flex: 100%;
         margin-right: 0;
     }
-
 }

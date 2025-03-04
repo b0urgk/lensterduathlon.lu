@@ -160,4 +160,41 @@ document.addEventListener('DOMContentLoaded', function() {
     cloneItems();
     startAutoSlide();
     window.addEventListener('resize', handleResize);
+
+    // Make Nav links link to local sections
+
+    // Function to extract the last path segment and convert to hashtag
+    function pathToHashtag(href) {
+        try {
+            // Parse the URL properly
+            const url = new URL(href);
+
+            // Get the pathname and split by slashes
+            const pathSegments = url.pathname.split('/').filter(segment => segment.length > 0);
+
+            // Get the last segment (or return empty if no segments)
+            const lastSegment = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : '';
+
+            // Split by hyphens, capitalize each part, and join back
+            const capitalized = lastSegment.split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join('');
+
+            // Add the hashtag symbol
+            return '#' + capitalized;
+        } catch (e) {
+            // If URL parsing fails, fallback to a simpler method
+            const parts = href.split('/');
+            const lastPart = parts[parts.length - 1];
+
+            const capitalized = lastPart.split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join('');
+
+            return '#' + capitalized;
+        }
+    }
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(navLink => navLink.href = pathToHashtag(navLink.href));
+
 })
