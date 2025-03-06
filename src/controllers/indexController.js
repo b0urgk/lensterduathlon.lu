@@ -24,7 +24,7 @@ module.exports = {
 
     },
     volunteers: (req, res, next) => {
-        const content = res.locals.contents.volunteers;
+        const content = {};
 
         res.render('volunteers.ejs', { title: 'Volunteers', lang: res.locals.lang, pageStaticFiles: 'volunteers', pageName: 'volunteers', user: req.user, content })
 
@@ -45,12 +45,34 @@ module.exports = {
 
         res.render('sponsors.ejs', { title: 'Sponsors', lang: res.locals.lang, pageStaticFiles: 'md', pageName: 'sponsors', user: req.user, sponsorImages: filteredFiles, content })
     },
+    shortDistance:  (req, res, next) =>{
+        const files = fs.readdirSync('./src/public/images/');
+        const content = {};
+
+        res.render('shortDistance.ejs', { title: 'Long Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
+    },
     longDistance: (req, res, next) =>{
         const files = fs.readdirSync('./src/public/images/');
         const content = {};
 
         res.render('longDistance.ejs', { title: 'Long Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
+    },
+    middleDistance:  (req, res, next) =>{
+        const files = fs.readdirSync('./src/public/images/');
+        const content = {};
 
-    }
+        res.render('middleDistance.ejs', { title: 'Long Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
+    },
+    tba:  (req, res, next) =>{
+        const files = fs.readdirSync('./src/public/images/');
+        const content = {};
 
+        res.render('tba.ejs', { title: 'Long Distance Info', lang: res.locals.lang, pageStaticFiles: null, pageName: 'tba', user: req.user, content })
+    },
+    privacyPolicy:  (req, res, next) =>{
+        const files = fs.readdirSync('./src/public/images/');
+        const content = {};
+
+        res.render('privacy-policy.ejs', { title: 'Privacy Policy', lang: res.locals.lang, pageStaticFiles: 'privacy-policy', pageName: 'privacy-policy', user: req.user, content })
+    },
 }

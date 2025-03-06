@@ -18,8 +18,12 @@ router.get('/:lang(en|de|fr)?/login', indexController.login)
 router.get('/:lang(en|de|fr)?/race-info', indexController.raceInfos)
 router.get('/:lang(en|de|fr)?/races', indexController.raceInfos)
 router.get('/:lang(en|de|fr)?/races/long-distance', indexController.longDistance)
+router.get('/:lang(en|de|fr)?/races/middle-distance', indexController.middleDistance)
+router.get('/:lang(en|de|fr)?/races/short-distance', indexController.shortDistance)
+router.get('/:lang(en|de|fr)?/races/kids-distance', indexController.tba)
 
 
+router.get('/:lang(en|de|fr)?/privacy-policy', indexController.privacyPolicy);
 
 
 
@@ -27,7 +31,11 @@ router.get('/:lang(en|de|fr)?/volunteers', indexController.volunteers)
 
 router.get('/:lang(en|de|fr)?/partners', indexController.sponsors)
 
-router.get('/:lang(en|de|fr)?/archive', indexController.archive)
+router.get('/:lang(en|de|fr)?/archive', indexController.tba)
+
+
+
+
 
 
 

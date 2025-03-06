@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return '#' + capitalized;
         }
     }
-    const navLinks = document.querySelectorAll('nav ul li a');
+    const navLinks = document.querySelectorAll('nav ul li > a');
     navLinks.forEach(navLink => navLink.href = pathToHashtag(navLink.href));
 
 })

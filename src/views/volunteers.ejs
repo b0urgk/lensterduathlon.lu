@@ -1,16 +1,275 @@
-<div id="volunteer-form__container">
-    <form action="/api/auth/submit-volunteer-application" method="POST" style="margin-top: 5rem" id="volunteer-input__form">
+<div class="form-container">
+    <h2 class="form-title">Helfer-Anmeldung</h2>
+    <p>Vielen Dank für deine Bereitschaft, bei unserem Sportevent zu helfen! Bitte fülle das Formular aus, damit wir dich optimal einsetzen können.</p>
 
-        <h1 id="volunteer-form__title">  <%=  %> </h1>
+    <form>
+        <h3 class="form-subtitle">Persönliche Daten</h3>
 
-        <label for="volunteer-name__input" class="volunteer-form__label"> Name: </label>
-        <input type="text" id="volunteer-name__input" class="volunteer-form__input" name="name" required> <br>
+        <div class="form-group">
+            <label for="name" class="form-label">Vor- und Nachname*</label>
+            <input type="text" id="name" class="form-input" placeholder="Dein vollständiger Name" >
+        </div>
 
+        <div class="form-group">
+            <label for="email" class="form-label">E-Mail*</label>
+            <input type="email" id="email" class="form-input" placeholder="deine@email.de" >
+            <div class="help-text">Wir verwenden deine E-Mail für alle wichtigen Informationen.</div>
+        </div>
 
-        <label for="volunteer-email__input" class="volunteer-form__label"> Email: </label>
-        <input type="email" id="volunteer-email__input" class="volunteer-form__input" name="email" required> <br>
+        <div class="form-group">
+            <label for="phone" class="form-label">Telefonnummer*</label>
+            <input type="tel" id="phone" class="form-input" placeholder="+49 123 4567890" >
+            <div class="help-text">Für kurzfristige Rückfragen am Veranstaltungstag</div>
+        </div>
 
+        <div class="form-group">
+            <label for="tshirt" class="form-label">T-Shirt Größe</label>
+            <select id="tshirt" class="form-input form-select">
+                <option value="" disabled selected>Bitte wählen</option>
+                <option value="xs">XS</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+                <option value="xxl">XXL</option>
+            </select>
+            <div class="help-text">Alle Helfer erhalten ein Event-T-Shirt</div>
+        </div>
 
-        <button type="submit" id="volunteer-button"> volunteer </button>
+        <h3 class="form-subtitle">Verfügbarkeit & Einsatzbereiche</h3>
+
+        <div class="form-group">
+            <label class="form-label">An welchen Tagen kannst du helfen?*</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="day1" class="form-checkbox">
+                <label for="day1">Samstag (Aufbau)</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="day2" class="form-checkbox">
+                <label for="day2">Sonntag (Hauptveranstaltung)</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="day3" class="form-checkbox">
+                <label for="day3">Sonntag (Abbau)</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Bevorzugte Einsatzbereiche</label>
+            <div class="help-text">Wähle bis zu drei Bereiche, in denen du gerne helfen würdest</div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="area1" class="form-checkbox">
+                <label for="area1">Streckenposten</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="area2" class="form-checkbox">
+                <label for="area2">Verpflegungsstation</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="area3" class="form-checkbox">
+                <label for="area3">Anmeldung/Info-Point</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="area4" class="form-checkbox">
+                <label for="area4">Zielbereich</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="area5" class="form-checkbox">
+                <label for="area5">Auf-/Abbau</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="area6" class="form-checkbox">
+                <label for="area6">Flexibel einsetzbar</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="comments" class="form-label">Weitere Informationen</label>
+            <textarea id="comments" class="form-input" rows="3" placeholder="Besondere Fähigkeiten, Einschränkungen oder sonstige Hinweise..."></textarea>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="consent" class="form-checkbox">
+            <label for="consent">Ich willige ein, dass meine angegebenen personenbezogenen Daten zum Zweck der Organisation des Events gespeichert und verwendet werden. Diese Einwilligung kann ich jederzeit mit Wirkung für die Zukunft per E-Mail an <a style="color: var(--primary-color);" href="mailto:webmaster@lensterduathlon.lu?subject=Data%20deletion%20request">webmaster@lensterduathlon.lu</a> widerrufen.*</label>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="consent_contact" class="form-checkbox">
+            <label for="consent_contact">Ich bin damit einverstanden, dass ich bezüglich dieses Events und zukünftiger ähnlicher Veranstaltungen per E-Mail kontaktiert werden darf. (optional)</label>
+        </div>
+
+        <div class="privacy-info" style="margin-bottom: 1.5rem; font-size: 0.9rem;">
+            <p>Die von dir angegebenen Daten werden ausschließlich für die Organisation des Events verwendet und nach Abschluss der Veranstaltung gemäß den gesetzlichen Aufbewahrungsfristen gespeichert. Eine Weitergabe an Dritte erfolgt nicht, es sei denn, wir sind gesetzlich dazu verpflichtet. Detaillierte Informationen findest du in unserer <a href="#" style="color: var(--primary-color);">Datenschutzerklärung</a>.</p>
+        </div>
+        <p>Felder mit * sind Pflichtfelder</p>
+
+        <button type="submit" class="form-btn">Als Helfer anmelden</button>
     </form>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+
+        // Form validation function
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let isValid = true;
+
+            // Reset all error states
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('error');
+                const errorMessage = group.querySelector('.error-message');
+                if (errorMessage) {
+                    errorMessage.remove();
+                }
+            });
+
+            // Validate name
+            const nameInput = document.getElementById('name');
+            if (!nameInput.value.trim()) {
+                showError(nameInput, 'Bitte gib deinen Namen ein');
+                isValid = false;
+            }
+
+            // Validate email
+            const emailInput = document.getElementById('email');
+            if (!emailInput.value.trim()) {
+                showError(emailInput, 'Bitte gib deine E-Mail-Adresse ein');
+                isValid = false;
+            } else if (!isValidEmail(emailInput.value)) {
+                showError(emailInput, 'Bitte gib eine gültige E-Mail-Adresse ein');
+                isValid = false;
+            }
+
+            // Validate phone
+            const phoneInput = document.getElementById('phone');
+            if (!phoneInput.value.trim()) {
+                showError(phoneInput, 'Bitte gib deine Telefonnummer ein');
+                isValid = false;
+            } else if (!isValidPhone(phoneInput.value)) {
+                showError(phoneInput, 'Bitte gib eine gültige Telefonnummer ein');
+                isValid = false;
+            }
+
+            // Validate day selection
+            const day1 = document.getElementById('day1');
+            const day2 = document.getElementById('day2');
+            const day3 = document.getElementById('day3');
+
+            if (!day1.checked && !day2.checked && !day3.checked) {
+                const dayGroup = day1.closest('.form-group');
+                showGroupError(dayGroup, 'Bitte wähle mindestens einen Tag aus');
+                isValid = false;
+            }
+
+            // Validate consent
+            const consentCheckbox = document.getElementById('consent');
+            if (!consentCheckbox.checked) {
+                const consentGroup = consentCheckbox.closest('.checkbox-group');
+                showGroupError(consentGroup, 'Bitte stimme der Datenschutzerklärung zu');
+                isValid = false;
+            }
+
+            // Submit the form if valid
+            if (isValid) {
+                alert('Formular erfolgreich abgesendet! Vielen Dank für deine Anmeldung als Helfer.');
+                // In a real application, you would use:
+                // form.submit();
+            }
+        });
+
+        // Helper functions
+        function showError(inputElement, message) {
+            const formGroup = inputElement.closest('.form-group');
+            formGroup.classList.add('error');
+
+            const errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
+            errorElement.textContent = message;
+
+            formGroup.appendChild(errorElement);
+
+            // Focus on the first invalid input
+            if (!document.querySelector(':focus')) {
+                inputElement.focus();
+            }
+        }
+
+        function showGroupError(groupElement, message) {
+            groupElement.classList.add('error');
+
+            const errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
+            errorElement.textContent = message;
+
+            groupElement.appendChild(errorElement);
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidPhone(phone) {
+            // Simple validation, can be improved
+            const phoneRegex = /^[+]?[\d\s()-]{8,}$/;
+            return phoneRegex.test(phone);
+        }
+
+        // Real-time validation
+        const inputs = document.querySelectorAll('.form-input');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                // Remove existing error message if input is valid
+                const formGroup = this.closest('.form-group');
+                const errorMessage = formGroup.querySelector('.error-message');
+
+                if (this.id === 'name' && this.value.trim()) {
+                    formGroup.classList.remove('error');
+                    if (errorMessage) errorMessage.remove();
+                }
+
+                if (this.id === 'email' && isValidEmail(this.value)) {
+                    formGroup.classList.remove('error');
+                    if (errorMessage) errorMessage.remove();
+                }
+
+                if (this.id === 'phone' && isValidPhone(this.value)) {
+                    formGroup.classList.remove('error');
+                    if (errorMessage) errorMessage.remove();
+                }
+            });
+        });
+
+        // Checkbox validation for days
+        const dayCheckboxes = [
+            document.getElementById('day1'),
+            document.getElementById('day2'),
+            document.getElementById('day3')
+        ];
+
+        dayCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (dayCheckboxes.some(cb => cb.checked)) {
+                    const formGroup = this.closest('.form-group');
+                    formGroup.classList.remove('error');
+                    const errorMessage = formGroup.querySelector('.error-message');
+                    if (errorMessage) errorMessage.remove();
+                }
+            });
+        });
+
+        // Consent checkbox validation
+        const consentCheckbox = document.getElementById('consent');
+        consentCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                const checkboxGroup = this.closest('.checkbox-group');
+                checkboxGroup.classList.remove('error');
+                const errorMessage = checkboxGroup.querySelector('.error-message');
+                if (errorMessage) errorMessage.remove();
+            }
+        });
+    });
+</script>

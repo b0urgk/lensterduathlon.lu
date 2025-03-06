@@ -415,7 +415,11 @@
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     transition: transform 0.5s;
 }
-
+.dropbtn.highviz{
+    background: rgba(255, 255, 0, 0.27);
+    border-radius: 18px;
+    padding: 3px;
+}
 .info-image img:hover {
     transform: scale(1.05);
 }
