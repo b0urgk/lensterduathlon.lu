@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mobile logo test
     if (window.innerWidth <= 768) {
-        const logoContainer = document.querySelector('.mobile-logo-container');
+        const logoContainer = document.querySelector('.edge-logo-container');
         if (logoContainer) {
             console.log('Mobile logo container exists and should be visible');
             logoContainer.style.display = 'block';
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle window resize for logo
     window.addEventListener('resize', function () {
-        const logoContainer = document.querySelector('.mobile-logo-container');
+        const logoContainer = document.querySelector('.edge-logo-container');
         if (logoContainer) {
             if (window.innerWidth <= 768) {
                 logoContainer.style.display = 'block';

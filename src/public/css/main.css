@@ -22,6 +22,12 @@ header.navbar-hidden {
     margin-top: 70px; /* Add space for fixed header */
 }
 
+.desktop-logo{
+    background: #fff;
+    padding:  0 1.5rem;
+    border-radius: 18px;
+}
+
 .logo-container {
     display: flex;
     align-items: center;
@@ -49,33 +55,33 @@ header.navbar-hidden {
 }
 
 /* Mobile logo container styling */
-.mobile-logo-container {
-    display: none; /* Hidden by default, shown on mobile */
+.edge-logo-container {
+    display: block; /* Hidden by default, shown on mobile */
     position: fixed;
     bottom: 0;
     right: 20px;
     z-index: 9999;
     filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
     pointer-events: none; /* Allow clicks to pass through */
-    width: 88px; /* 10% wider than original 80px */
+    width: 8vw; /* 10% wider than original 80px */
 }
 
-.mobile-logo-container .house-shape {
-    width: 88px; /* 10% wider than original 80px */
+.edge-logo-container .house-shape {
+    width: 100%; /* 10% wider than original 80px */
     height: 66px; /* 60% of original height (110px) */
     background-color: white;
     position: relative;
 }
 
-.mobile-logo-container .house-shape:before {
+.edge-logo-container .house-shape:before {
     content: '';
     position: absolute;
     top: -23px; /* Adjusted to eliminate gap */
     left: 0;
     width: 0;
     height: 0;
-    border-left: 44px solid transparent;
-    border-right: 44px solid transparent;
+    border-left: 4vw solid transparent;
+    border-right: 4vw solid transparent;
     border-bottom: 24px solid white;
 }
 
@@ -368,10 +374,17 @@ footer {
         display: none !important;
     }
 
-    .mobile-logo-container {
+    .edge-logo-container {
         display: block !important;
+        width: 88px;
     }
-
+    .edge-logo-container .house-shape{
+        width: 88px;
+    }
+    .edge-logo-container .house-shape:before{
+        border-left: 44px solid transparent;
+        border-right: 44px solid transparent;
+    }
 
     .footer-column {
         flex: 100%;
