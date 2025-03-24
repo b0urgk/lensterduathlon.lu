@@ -27,11 +27,13 @@ router.get('/:lang(en|de|fr)?/privacy-policy', indexController.privacyPolicy);
 
 
 
-router.get('/:lang(en|de|fr)?/volunteers', indexController.volunteers)
+router.get('/:lang(en|de|fr)?/volunteers', indexController.tba)
 
 router.get('/:lang(en|de|fr)?/partners', indexController.sponsors)
 
 router.get('/:lang(en|de|fr)?/archive', indexController.tba)
+
+router.get('/:lang(en|de|fr)?/contact', indexController.contact)
 
 
 

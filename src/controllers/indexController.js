@@ -30,6 +30,12 @@ module.exports = {
 
 
     },
+    contact: (req, res, next) => {
+        const content = {};
+
+        res.render('contact.ejs', { title: 'Contact', lang: res.locals.lang, pageStaticFiles: 'contact', pageName: 'contact', user: req.user, content })
+
+    },
     archive: async (req, res, next) => {
 
         const allEvents = await Event.find({});

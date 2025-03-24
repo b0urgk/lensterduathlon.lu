@@ -3,12 +3,6 @@
     .section-header h2 {
         font-size: 1.8rem;
     }
-    .quick-nav {
-        top: auto;
-        bottom: 20px;
-        left: 20px;
-        width: 160px;
-    }
 }
 h1::after {
     content: '';
@@ -20,83 +14,6 @@ h1::after {
     height: 3px;
     background-color: var(--primary-color);
 }
-
-.quick-nav {
-    position: fixed;
-    top: 100px;
-    left: 20px;
-    z-index: 1000;
-    background-color: var(--primary-color);
-    color: var(--light-text);
-    border-radius: 8px;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
-    width: 200px;
-    padding: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.quick-nav-header {
-    background-color: var(--navbar-hover);
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-.quick-nav-header h4 {
-    margin: 0;
-    font-size: 16px;
-}
-
-.quick-nav-toggle {
-    background: none;
-    border: none;
-    color: var(--light-text);
-    font-size: 18px;
-    cursor: pointer;
-    padding: 0;
-}
-
-.quick-nav-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-.quick-nav.expanded .quick-nav-content {
-    max-height: 500px;
-}
-
-.quick-nav-list {
-    list-style: none;
-    padding: 10px 15px;
-    margin: 0;
-}
-
-.quick-nav-list li {
-    margin-bottom: 8px;
-}
-
-.quick-nav-list li:last-child {
-    margin-bottom: 0;
-}
-
-.quick-nav-list a {
-    color: var(--light-text);
-    text-decoration: none;
-    font-size: 14px;
-    display: block;
-    padding: 5px 0;
-    transition: all 0.2s ease;
-}
-
-.quick-nav-list a:hover {
-    color: var(--accent-color);
-    padding-left: 5px;
-}
-
 .container {
     width: 100%;
     max-width: 1200px;
@@ -150,7 +67,6 @@ section {
     background-color: var(--primary-color);
 }
 
-/* Cards */
 .card {
     background-color: white;
     border-radius: 8px;
@@ -174,31 +90,6 @@ section {
     border-bottom: 1px solid var(--text-color);
 }
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 320px);
-    justify-content: center;
-    gap: 2rem;
-}
-
-/* Rules Section */
-.rules-list {
-    list-style: none;
-}
-
-.rules-list li {
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: flex-start;
-}
-
-.rules-list li::before {
-    content: "- ";
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-right: 10px;
-}
-
 /* Registration */
 .contact-info {
     background-color: var(--section-bg-1);
@@ -219,7 +110,7 @@ section {
 }
 
 .contact-info li::before {
-    content: "✓";
+    content: "—";
     color: var(--primary-color);
     font-weight: bold;
     margin-right: 10px;
@@ -242,8 +133,12 @@ section {
     background-color: transparent;
     color: var(--primary-color);
 }
-@media (max-width: 768px) {
-    .quick-nav{
-        display: none;
-    }
+
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 500px);
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
 }
