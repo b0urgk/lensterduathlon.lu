@@ -195,6 +195,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     const navLinks = document.querySelectorAll('nav ul li > a');
-    navLinks.forEach(navLink => navLink.href = pathToHashtag(navLink.href));
+    const exceptions = ["partners", "contact", 'archive', 'volunteers'];
+
+    navLinks.forEach(navLink => {
+        if (!exceptions.some(exception => navLink.href.includes(exception))) {
+            navLink.href = pathToHashtag(navLink.href);
+        }
+    });
 
 })

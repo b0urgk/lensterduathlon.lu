@@ -55,7 +55,7 @@ module.exports = {
         const files = fs.readdirSync('./src/public/images/');
         const content = {};
 
-        res.render('shortDistance.ejs', { title: 'Long Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
+        res.render('shortDistance.ejs', { title: 'Short Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
     },
     longDistance: (req, res, next) =>{
         const files = fs.readdirSync('./src/public/images/');
@@ -67,7 +67,7 @@ module.exports = {
         const files = fs.readdirSync('./src/public/images/');
         const content = {};
 
-        res.render('middleDistance.ejs', { title: 'Long Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
+        res.render('middleDistance.ejs', { title: 'Middle Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
     },
     tba:  (req, res, next) =>{
         const files = fs.readdirSync('./src/public/images/');
