@@ -1,35 +1,47 @@
 // Add a simple countdown timer, scroll animations, sponsors slider, and smart navbar
 document.addEventListener('DOMContentLoaded', function() {
-    // Set the date we're counting down to
-    const countDownDate = new Date(document.querySelector('.event-date').textContent.split('.').reverse().join('-'))
+    // Get the date text from the element
+    const dateText = document.querySelector('.event-date').textContent.trim();
 
-    // Update the countdown every 1 second
-    const x = setInterval(function () {
-        // Get current date and time
-        const now = new Date().getTime();
+    // Parse the date more explicitly - assuming format is DD.MM.YYYY
+    const dateParts = dateText.split('.');
+    if (dateParts.length === 3) {
+        const day = parseInt(dateParts[0], 10);
+        const month = parseInt(dateParts[1], 10) - 1; // Month is 0-indexed in JavaScript
+        const year = parseInt(dateParts[2], 10);
 
-        // Find the distance between now and the countdown date
-        const distance = countDownDate - now;
+        // Create date object using explicit parameters
+        const countDownDate = new Date(year, month, day).getTime();
 
-        // Calculate days, hours, minutes and seconds
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // Update the countdown every 1 second
+        const x = setInterval(function () {
+            // Get current date and time
+            const now = new Date().getTime();
 
-        // Update the elements
-        document.querySelectorAll('.countdown-number')[0].textContent = days;
-        document.querySelectorAll('.countdown-number')[1].textContent = hours;
-        document.querySelectorAll('.countdown-number')[2].textContent = minutes;
-        document.querySelectorAll('.countdown-number')[3].textContent = seconds;
+            // Find the distance between now and the countdown date
+            const distance = countDownDate - now;
 
-        // If the countdown is finished, display a message
-        if (distance < 0) {
-            clearInterval(x);
-            document.querySelectorAll('.countdown-container').innerHTML = "EVENT STARTED";
-        }
-    }, 1000);
-    // Scroll animation for info sections
+            // Calculate days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update the elements
+            document.querySelectorAll('.countdown-number')[0].textContent = days;
+            document.querySelectorAll('.countdown-number')[1].textContent = hours;
+            document.querySelectorAll('.countdown-number')[2].textContent = minutes;
+            document.querySelectorAll('.countdown-number')[3].textContent = seconds;
+
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector('.countdown-container').innerHTML = "EVENT STARTED";
+            }
+        }, 1000);
+    } else {
+        console.error("Date format not recognized:", dateText);
+    }    // Scroll animation for info sections
     const infoSections = document.querySelectorAll('.info-section');
 
     // Check if element is in viewport
