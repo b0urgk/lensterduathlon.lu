@@ -1,0 +1,9 @@
+
+.sponsor-logo{
+    max-width: 15rem;
+}
+.sponsor-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

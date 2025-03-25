@@ -49,7 +49,7 @@ module.exports = {
         const filteredFiles = files.filter(file => file.startsWith('sponsor-'));
         const content = {};
 
-        res.render('sponsors.ejs', { title: 'Sponsors', lang: res.locals.lang, pageStaticFiles: 'md', pageName: 'sponsors', user: req.user, sponsorImages: filteredFiles, content })
+        res.render('sponsors.ejs', { title: 'Sponsors', lang: res.locals.lang, pageStaticFiles: 'partners', pageName: 'sponsors', user: req.user, sponsorImages: filteredFiles, content })
     },
     shortDistance:  (req, res, next) =>{
         const files = fs.readdirSync('./src/public/images/');

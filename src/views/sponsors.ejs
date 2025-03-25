@@ -4,11 +4,9 @@
         <div class="sponsor-bar">
             <div class="sponsor-container" style="display: flex; justify-content: center; gap: 3rem;flex-wrap: wrap">
                 <% sponsorImages.forEach(function (file){ %>
-                    <div class="sponsor-slide" style="">
                         <a href="https://<%= file.split('-').splice(1).join('-').replace(/\.(jpg|jpeg|png|gif|bmp|webp|tiff|svg)$/i, '')%>.lu">
                             <img src="/public/images/<%= file %>" alt="<%= file %>" class="sponsor-logo">
                         </a>
-                    </div>
                 <% }) %>
             </div>
         </div>
