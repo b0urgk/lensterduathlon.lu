@@ -20,7 +20,6 @@ module.exports = async (req, res, next) => {
             }, {});
             return acc;
         }, {});
-
         for(let content in contents){
             for(let value in contents[content]){
                 contents[content][value] = contents[content][value].replace('&eventDate;', new Intl.DateTimeFormat('de-DE').format(new Date(res.locals.eventData.eventDate)))

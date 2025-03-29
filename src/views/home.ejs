@@ -1,94 +1,86 @@
-
-
-
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h2>Lënster Duathlon </h2>
-            <h3 class="event-date"> <%= new Intl.DateTimeFormat('de-DE').format(new Date(eventData.eventDate)) %> </h3>
-            <p>Sei dabei bei einer aufregenden Kombination aus Laufen und Radfahren inmitten des wunderschönen Junglinsters.</p>
-            <a target="_blank" href="https://prod.chronorace.be/registration/SelectActivity.aspx?iframe=1&eventId=2156893921540780&v=3&lng=FR" class="btn"> <%= content.ctaButton %> </a>
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="hero-content">
+        <h2><%=content.heroTitle%></h2>
+        <h3 class="event-date"><%= new Intl.DateTimeFormat('de-DE').format(new Date(eventData.eventDate)) %></h3>
+        <p><%=content.heroDescription%></p>
+        <a target="_blank" href="https://prod.chronorace.be/registration/SelectActivity.aspx?iframe=1&eventId=2156893921540780&v=3&lng=FR" class="btn"><%=content.ctaButton%></a>
+    </div>
+</section>
+<!-- Countdown Section -->
+<section class="countdown">
+    <div class="countdown-container">
+        <div class="countdown-box">
+            <div class="countdown-number">68</div>
+            <div class="countdown-label"><%=content.countDownTitleDays%></div>
         </div>
-    </section>
-    <!-- Countdown Section -->
-    <section class="countdown">
-        <div class="countdown-container">
-            <div class="countdown-box">
-                <div class="countdown-number">68</div>
-                <div class="countdown-label"> <%= content.countDownTitleDays %> </div>
-            </div>
-            <div class="countdown-box">
-                <div class="countdown-number">7</div>
-                <div class="countdown-label"> <%= content.countDownTitleHours %> </div>
-            </div>
-            <div class="countdown-box">
-                <div class="countdown-number">3</div>
-                <div class="countdown-label"> <%= content.countDownTitleMinutes %> </div>
-            </div>
-            <div class="countdown-box">
-                <div class="countdown-number">18</div>
-                <div class="countdown-label"> <%= content.countDownTitleSeconds %> </div>
-            </div>
+        <div class="countdown-box">
+            <div class="countdown-number">7</div>
+            <div class="countdown-label"><%=content.countDownTitleHours%></div>
         </div>
-    </section>
-
-    <!-- Sponsors Section -->
-    <section class="sponsors" id="sponsors">
-        <h2>Our Sponsors</h2>
-        <div class="sponsors-slider">
-            <div class="sponsors-track">
-
-                <% sponsorImages.forEach(function (file){ %>
-                    <div class="sponsor-item">
-                        <a href="https://<%= file.split('-').splice(1).join('-').replace(/\.(jpg|jpeg|png|gif|bmp|webp|tiff|svg)$/i, '')%>.lu">
-                            <img src="/public/images/<%= file %>" alt="<%= file %>" class="sponsor-logo">
-                        </a>
-                    </div>
-                <% }) %>
-            </div>
+        <div class="countdown-box">
+            <div class="countdown-number">3</div>
+            <div class="countdown-label"><%=content.countDownTitleMinutes%></div>
         </div>
-        <div class="sponsors-navigation"></div>
-    </section>
-
-    <section class="info-section" id="RaceInfo">
-        <div class="info-image">
-            <img src="/public/images/banner-2.png" height="95%">
+        <div class="countdown-box">
+            <div class="countdown-number">18</div>
+            <div class="countdown-label"><%=content.countDownTitleSeconds%></div>
         </div>
-        <div class="info-content">
-            <h2 class="card-title card-text-content"> Infos </h2>
-            <div >
-                <p class="card-description card-text-content">Alles, was du für deinen erfolgreichen Wettkampftag wissen musst: Zeitplan, Startzeiten, Anmeldemodalitäten, Teilnahmegebühren und Regelwerk.</p>
-            </div>
-            <a href="/<%=lang%>/race-info" class="btn"> Infos </a>
+    </div>
+</section>
+
+<!-- Sponsors Section -->
+<section class="sponsors" id="sponsors">
+    <h2><%=content.sponsorsTitle%></h2>
+    <div class="sponsors-slider">
+        <div class="sponsors-track">
+            <% sponsorImages.forEach(function (file){ %>
+                <div class="sponsor-item">
+                    <a href="https://<%= file.split('-').splice(1).join('-').replace(/\.(jpg|jpeg|png|gif|bmp|webp|tiff|svg)$/i, '')%>.lu">
+                        <img src="/public/images/<%= file %>" alt="<%= file %>" class="sponsor-logo">
+                    </a>
+                </div>
+            <% }) %>
         </div>
+    </div>
+    <div class="sponsors-navigation"></div>
+</section>
 
-    </section>
-
-
-    <section class="info-section" id="RaceInfo">
-
-        <div class="info-content">
-            <h2 class="card-title card-text-content"> Strecken </h2>
-            <div >
-                <p class="card-description card-text-content">Entdecke unsere herausfordernden und landschaftlich reizvollen Strecken für Sportler aller Leistungsklassen. Von der anspruchsvollen Radrunde mit Panoramablicken bis zur abwechslungsreichen Laufstrecke durch malerische Landschaften – hier findest du detaillierte Streckenpläne, Höhenprofile und GPS-Daten für dein optimales Rennerlebnis.</p>
-            </div>
-            <a href="#hero" class="btn" onclick="document.querySelector('.dropbtn').classList.add('highviz')"> Strecken </a>
+<section class="info-section" id="RaceInfo">
+    <div class="info-image">
+        <img src="/public/images/banner-2.png" height="95%">
+    </div>
+    <div class="info-content">
+        <h2 class="card-title card-text-content"><%=content.infoTitle%></h2>
+        <div>
+            <p class="card-description card-text-content"><%=content.infoDescription%></p>
         </div>
-        <div class="info-image">
-            <img src="/public/images/Races-card.jpg"  >
-        </div>
+        <a href="/<%=lang%>/race-info" class="btn"><%=content.infoButton%></a>
+    </div>
+</section>
 
-    </section>
-    <section class="info-section" id="RaceInfo">
-        <div class="info-image">
-            <img src="/public/images/-card.jpg"  >
+<section class="info-section" id="RaceInfo">
+    <div class="info-content">
+        <h2 class="card-title card-text-content"><%=content.coursesTitle%></h2>
+        <div>
+            <p class="card-description card-text-content"><%=content.coursesDescription%></p>
         </div>
-        <div class="info-content">
-            <h2 class="card-title card-text-content"> Helfer </h2>
-            <div >
-                <p class="card-description card-text-content">Werde Teil unseres engagierten Teams! Ohne unsere fantastischen Helfer wäre dieser Duathlon nicht möglich. Hier erfährst du, wie du uns unterstützen kannst – sei es an Verpflegungsstationen, bei der Streckenmarkierung oder im Zielbereich. Melde dich an, bring Freunde mit und erlebe die besondere Atmosphäre unserer Veranstaltung aus einer ganz neuen Perspektive.</p>
-            </div>
-            <a href="/<%=lang%>/volunteers%>" class="btn"> <%= content.sitePreviewButtonContent %> </a>
-        </div>
+        <a href="#hero" class="btn" onclick="document.querySelector('.dropbtn').classList.add('highviz')"><%=content.coursesButton%></a>
+    </div>
+    <div class="info-image">
+        <img src="/public/images/Races-card.jpg">
+    </div>
+</section>
 
-    </section>
+<section class="info-section" id="RaceInfo">
+    <div class="info-image">
+        <img src="/public/images/-card.jpg">
+    </div>
+    <div class="info-content">
+        <h2 class="card-title card-text-content"><%=content.volunteersTitle%></h2>
+        <div>
+            <p class="card-description card-text-content"><%=content.volunteersDescription%></p>
+        </div>
+        <a href="/<%=lang%>/volunteers%>" class="btn"><%=content.sitePreviewButtonContent%></a>
+    </div>
+</section>

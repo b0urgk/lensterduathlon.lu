@@ -31,7 +31,7 @@ module.exports = {
 
     },
     contact: (req, res, next) => {
-        const content = {};
+        const content = res.locals.contents.contact;
 
         res.render('contact.ejs', { title: 'Contact', lang: res.locals.lang, pageStaticFiles: 'contact', pageName: 'contact', user: req.user, content })
 
@@ -53,19 +53,20 @@ module.exports = {
     },
     shortDistance:  (req, res, next) =>{
         const files = fs.readdirSync('./src/public/images/');
-        const content = {};
+        const content = res.locals.contents.shortDistance;
 
         res.render('shortDistance.ejs', { title: 'Short Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
     },
     longDistance: (req, res, next) =>{
         const files = fs.readdirSync('./src/public/images/');
-        const content = {};
+        const content = res.locals.contents.longDistance;
 
         res.render('longDistance.ejs', { title: 'Long Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
     },
     middleDistance:  (req, res, next) =>{
         const files = fs.readdirSync('./src/public/images/');
-        const content = {};
+        const content = res.locals.contents.shortDistance;
+        console.log(content.pageTitle)
 
         res.render('middleDistance.ejs', { title: 'Middle Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
     },

@@ -1,13 +1,12 @@
 <!-- Hero Section -->
 <section class="hero">
     <div class="container">
-        <h2>Race 3 Duathlon Strecke</h2>
-        <p>Ein anspruchsvoller Kurs mit 2.5 km Laufen, 9.5 km Radfahren und 1.25 km Laufen durch malerische Landschaften und herausforderndes Terrain.</p>
+        <h2><%=content.shortDistanceTitle%></h2>
+        <p><%=content.shortDistanceDescription%></p>
         <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
-            <a href="#overview" class="btn">Streckendetails</a>
-            <a href="#gps" class="btn">GPS-Daten herunterladen</a>
+            <a href="#overview" class="btn"><%=content.courseDetailsButton%></a>
+            <a href="#gps" class="btn"><%=content.gpsDownloadButton%></a>
         </div>
-
     </div>
 </section>
 
@@ -15,59 +14,56 @@
 <section id="overview">
     <div class="container">
         <div class="section-header">
-            <h2>Streckenübersicht</h2>
+            <h2><%=content.courseOverviewTitle%></h2>
         </div>
         <div class="card">
             <div class="race-detail">
-                <h3>Allgemeine Information</h3>
+                <h3><%=content.generalInfoTitle%></h3>
 
                 <div class="race-info-grid">
-
                     <div class="info-box">
-                        <h4>Oberfläche</h4>
-                        <p>Laufstrecke: 100 % Asphalt, gut gepflegte Straßen<br>
-                            Radstrecke: 100 % Asphalt, gut gepflegte Straßen</p>
+                        <h4><%=content.surfaceTitle%></h4>
+                        <p><%=content.surfaceDescription%></p>
                     </div>
                     <div class="info-box">
-                        <h4>Streckenschwierigkeit</h4>
-                        <p><strong>Laufen:</strong> Mittel<br>
-                            <strong>Radfahren:</strong> Mittel-Schwer</p>
+                        <h4><%=content.difficultyTitle%></h4>
+                        <p><strong><%=content.difficultyDescription%></strong></p>
                     </div>
                     <div class="info-box">
-                        <h4>Wechselzone</h4>
-                        <p>Zentral gelegen am Hauptplatz mit ausreichend Platz und guter Organisation.</p>
+                        <h4><%=content.transitionTitle%></h4>
+                        <p><%=content.transitionDescription%></p>
                     </div>
                 </div>
 
                 <div class="stats-container">
                     <div class="stat-box">
-                        <h4>Erster Lauf</h4>
-                        <p>2.5 km</p>
-                        <p style="font-size: 1rem; font-weight: normal"> 1 Runde (GT) </p>
+                        <h4><%=content.firstRunTitle%></h4>
+                        <p><%=content.firstRunDistance%></p>
+                        <p style="font-size: 1rem; font-weight: normal"><%=content.firstRunLaps%></p>
                     </div>
                     <div class="stat-box">
-                        <h4>Radstrecke</h4>
-                        <p>9.5 km</p>
-                        <p style="font-size: 1rem; font-weight: normal"> 1 Runde </p>
+                        <h4><%=content.cyclingTitle%></h4>
+                        <p><%=content.cyclingDistance%></p>
+                        <p style="font-size: 1rem; font-weight: normal"><%=content.cyclingLaps%></p>
                     </div>
                     <div class="stat-box">
-                        <h4>Zweiter Lauf</h4>
-                        <p>1.25 km</p>
-                        <p style="font-size: 1rem; font-weight: normal"> 1 Runde (PT) </p>
+                        <h4><%=content.secondRunTitle%></h4>
+                        <p><%=content.secondRunDistance%></p>
+                        <p style="font-size: 1rem; font-weight: normal"><%=content.secondRunLaps%></p>
                     </div>
                     <div class="stat-box">
-                        <h4>Höhenunterschied Rad</h4>
-                        <p>608 m</p>
+                        <h4><%=content.elevationTitle%></h4>
+                        <p><%=content.elevationAmount%></p>
                     </div>
                 </div>
 
                 <div class="key-points">
-                    <h4>Wichtige Hinweise</h4>
+                    <h4><%=content.keyNotesTitle%></h4>
                     <ul class="key-point-list">
-                        <li>Helmpflicht auf der Radstrecke. Keine Ausnahmen.</li>
-                        <li>Drafting ist auf der Radstrecke erlaubt.</li>
-                        <li>Die Zeitnahme erfolgt per Chip, der am Knöchel zu tragen ist.</li>
-                        <li>Bei der Wechselzone müssen alle Teilnehmer vom Rad absteigen und das Rad schieben.</li>
+                        <li><%=content.keyNoteHelmet%></li>
+                        <li><%=content.keyNoteDrafting%></li>
+                        <li><%=content.keyNoteTiming%></li>
+                        <li><%=content.keyNoteTransition%></li>
                     </ul>
                 </div>
             </div>
@@ -77,22 +73,22 @@
 <section id="gps">
     <div class="container">
         <div class="section-header">
-            <h2>Strecken</h2>
+            <h2><%=content.coursesTitle%></h2>
         </div>
         <div class="card">
             <div class="race-detail">
-                <h3>Radstrecke</h3>
+                <h3><%=content.cyclingRouteTitle%></h3>
                 <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3331733626759426250" data-units="metric" data-full-width="true" data-style="standard" data-terrain="3d" data-map-hash="11.78/49.71445/6.28211" data-from-embed="true"></div><script src="https://strava-embeds.com/embed.js"></script>
             </div>
         </div>
         <div class="card">
             <div class="race-detail">
-                <h3>Laufstrecke</h3>
-                <h2> Grand Tour (GT) </h2>
-                <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3332801290377495282" data-units="metric" data-full-width="true" data-style="standard" data-terrain="3d" data-map-hash="12.89/49.72271/6.26529" data-from-embed="true"></div><script src="https://strava-embeds.com/embed.js"></script>            </div>
-                <h2> Petit Tour (PT) </h2>
-                <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3332801845338468082" data-units="metric" data-full-width="true" data-style="standard" data-terrain="3d" data-map-hash="14.74/49.72007/6.26685" data-from-embed="false"></div><script src="https://strava-embeds.com/embed.js"></script>
+                <h3><%=content.runningRouteTitle%></h3>
+                <h2><%=content.grandTourTitle%></h2>
+                <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3332801290377495282" data-units="metric" data-full-width="true" data-style="standard" data-terrain="3d" data-map-hash="12.89/49.72271/6.26529" data-from-embed="true"></div><script src="https://strava-embeds.com/embed.js"></script>
+            </div>
+            <h2><%=content.petitTourTitle%></h2>
+            <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3332801845338468082" data-units="metric" data-full-width="true" data-style="standard" data-terrain="3d" data-map-hash="14.74/49.72007/6.26685" data-from-embed="false"></div><script src="https://strava-embeds.com/embed.js"></script>
         </div>
-
     </div>
 </section>

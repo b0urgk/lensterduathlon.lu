@@ -1,39 +1,38 @@
 <div class="logo-container">
-        <div class="logo-text">
-            <a href="/" style="text-decoration: none">
-                <h1 style="font-size: 1.7rem">Lënster Duathlon</h1>
-                <p>POWERED BY Agence Steve Greisch</p>
-            </a>
-        </div>
-        <div class="desktop-logo">
-            <a href="https://greisch-steve.foyer.lu">
-                <img src="/public/images/sponsor-greisch-steve.foyer.png" alt="Logo" class="logo-image">
-            </a>
-        </div>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+    <div class="logo-text">
+        <a href="/" style="text-decoration: none">
+            <h1 style="font-size: 1.7rem">Lënster Duathlon</h1>
+            <p><%=content.logoTagline%></p>
+        </a>
     </div>
-    <nav>
-        <ul>
-            <li><a href="/<%=lang%>/race-info">Info</a></li>
-            <li class="dropdown">
-                <button class="dropbtn">Strecken
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="/<%=lang%>/races/kids-distance">Kids A/B</a>
-                    <a href="/<%=lang%>/races/short-distance"> Youth B/C </a>
-                    <a href="/<%=lang%>/races/long-distance"> Elite/AK/Relais </a>
-                    <a href="/<%=lang%>/races/middle-distance">Youth A/Promo/Juniors</a>
-                </div>
-            </li>
-            <li><a href="/<%=lang%>/archive">Archive</a></li>
-            <li><a href="/<%=lang%>/partners">Sponsoren</a></li>
-            <li><a href="/<%=lang%>/volunteers">Helfer</a></li>
-            <li><a href="/<%=lang%>/contact">Kontakt</a></li>
-        </ul>
-    </nav>
-
+    <div class="desktop-logo">
+        <a href="https://greisch-steve.foyer.lu">
+            <img src="/public/images/sponsor-greisch-steve.foyer.png" alt="Logo" class="logo-image">
+        </a>
+    </div>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<nav>
+    <ul>
+        <li><a href="/<%=lang%>/race-info"><%=content.navInfo%></a></li>
+        <li class="dropdown">
+            <button class="dropbtn"><%=content.navRoutes%>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/<%=lang%>/races/kids-distance"><%=content.navRoutesKids%></a>
+                <a href="/<%=lang%>/races/short-distance"><%=content.navRoutesYouthB%></a>
+                <a href="/<%=lang%>/races/long-distance"><%=content.navRoutesElite%></a>
+                <a href="/<%=lang%>/races/middle-distance"><%=content.navRoutesYouthA%></a>
+            </div>
+        </li>
+        <li><a href="/<%=lang%>/archive"><%=content.navArchive%></a></li>
+        <li><a href="/<%=lang%>/partners"><%=content.navSponsors%></a></li>
+        <li><a href="/<%=lang%>/volunteers"><%=content.navVolunteers%></a></li>
+        <li><a href="/<%=lang%>/contact"><%=content.navContact%></a></li>
+    </ul>
+</nav>

@@ -2,30 +2,30 @@
 <footer>
     <div class="footer-container">
         <div class="footer-column">
-            <h3>Über das Event</h3>
-            <p>Die nationalen Duathlon-Meisterschaften sind die wichtigste Veranstaltung in Luxemburg, bei der Laufen und Radfahren kombiniert werden. Kämpfen Sie um den nationalen Titel in einem unvergesslichen Rennen durch Junglinsters wunderschöne Landschaften.</p>
+            <h3><%=content.footerAboutTitle%></h3>
+            <p><%=content.footerAboutText%></p>
         </div>
         <div class="footer-column">
-            <h3> Infos zum Event</h3>
+            <h3><%=content.footerInfoTitle%></h3>
             <ul>
-                <li><a href="/<%=lang%>/race-info/#timetable">Programm</a></li>
-                <li><a href="/<%=lang%>/race-info/#registration">Jetzt anmelden</a></li>
-                <li><a href="#">Strecken</a></li>
+                <li><a href="/<%=lang%>/race-info/#timetable"><%=content.footerInfoProgram%></a></li>
+                <li><a href="/<%=lang%>/race-info/#registration"><%=content.footerInfoRegister%></a></li>
+                <li><a href="#"><%=content.footerInfoCourses%></a></li>
             </ul>
         </div>
         <div class="footer-column">
-            <h3>Kontakt</h3>
-            <p>Wenn Sie Fragen haben oder weitere Informationen benötigen, können Sie uns gerne kontaktieren:</p>
-            <p> <a style="color: var(--secondary-color); text-decoration: none" href="mailto:info@lensterduathlon.lu"> info@lensterduathlon.lu</a> </p>
-            <p>  <a style="color: var(--secondary-color); text-decoration: none" href="tel:+352621374930"> (+352) 621 374 930 </a> </p>
+            <h3><%=content.footerContactTitle%></h3>
+            <p><%=content.footerContactText%></p>
+            <p><a style="color: var(--secondary-color); text-decoration: none" href="mailto:info@lensterduathlon.lu">info@lensterduathlon.lu</a></p>
+            <p><a style="color: var(--secondary-color); text-decoration: none" href="tel:+352621374930">(+352) 621 374 930</a></p>
             <div class="social-icons">
                 <a href="https://www.facebook.com/p/Karibu-100076130240027/?locale=de_DE"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/karibu.jonglenster/"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
         <div class="footer-column">
-            <h3>Folgt uns</h3>
-            <p>Stay updated with the latest news and event information through our social media channels.</p>
+            <h3><%=content.footerFollowTitle%></h3>
+            <p><%=content.footerFollowText%></p>
             <ul>
                 <li><a href="https://www.facebook.com/p/Karibu-100076130240027/?locale=de_DE">Facebook</a></li>
                 <li><a href="https://www.instagram.com/karibu.jonglenster/">Instagram</a></li>
@@ -33,6 +33,6 @@
         </div>
     </div>
     <div class="copyright">
-        <p>&copy; 2025 KARIBU a.s.b.l. . All rights reserved.</p>
+        <p><%=content.footerCopyright%></p>
     </div>
 </footer>
