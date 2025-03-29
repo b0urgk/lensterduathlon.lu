@@ -438,7 +438,7 @@
         padding: 3rem 1rem;
         justify-content: center;
         align-items: center;
-        background-size: 130% 50vh; /* Width 100%, height auto */
+        background-size: 150% 50vh; /* Width 100%, height auto */
         height: 50vh;
     }
     .hero-content h3{
