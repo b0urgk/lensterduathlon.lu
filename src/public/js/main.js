@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+
 
     hamburger.addEventListener('click', toggleSidebar)
 

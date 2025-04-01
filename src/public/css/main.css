@@ -310,6 +310,126 @@ footer {
     color: #aaa;
     font-size: 0.8rem;
 }
+
+/* Language Selector Styles */
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+.language-selector {
+    margin-left: auto; /* Pushes the language selector to the right */
+}
+
+.language-dropbtn {
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.language-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--primary-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    top: 100%;
+}
+
+.language-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.language-dropdown-content a span {
+    font-size: 1.2em;
+}
+
+.language-dropdown-content a:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Desktop Dropdown */
+.language-dropdown:hover .language-dropdown-content,
+.language-dropdown:focus-within .language-dropdown-content {
+    display: block;
+}
+
+/* Mobile Styles */
+@media (max-width: 1400px) {
+    /* Hide desktop language selector */
+    nav .language-selector {
+        display: none;
+    }
+
+    /* Mobile Language Selector in Footer */
+    footer .language-selector {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    footer .language-dropdown-content {
+        position: static;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        background: transparent;
+        box-shadow: none;
+        margin-top: 0.5rem;
+    }
+
+    footer .language-dropdown-content a {
+        background-color: var(--secondary-color);
+        color: white;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        margin: 0;
+    }
+
+    footer .language-dropdown-content a:hover {
+        background-color: rgba(255,255,255,0.2);
+    }
+
+    footer .language-dropbtn {
+        display: none; /* Hide dropdown button in footer */
+    }
+
+    /* Ensure languages are always visible in footer */
+    footer .language-dropdown-content {
+        display: flex;
+    }
+}
+
+/* Ensure desktop version is visible */
+@media (min-width: 1400px) {
+    footer .language-selector {
+        display: none;
+    }
+}
+
 /* Responsive Styles */
 @media (max-width: 1400px){
     header {

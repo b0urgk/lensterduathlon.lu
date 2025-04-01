@@ -31,6 +31,27 @@
                 <li><a href="https://www.instagram.com/karibu.jonglenster/">Instagram</a></li>
             </ul>
         </div>
+        <div class="footer-column language-selector">
+            <div class="language-dropdown">
+                <div class="language-dropdown-content">
+                    <% if (lang !== 'en') { %>
+                        <a href="/en" class="language-option" data-lang="en">
+                            <span>🇬🇧</span> English
+                        </a>
+                    <% } %>
+                    <% if (lang !== 'de') { %>
+                        <a href="/de" class="language-option" data-lang="de">
+                            <span>🇩🇪</span> Deutsch
+                        </a>
+                    <% } %>
+                    <% if (lang !== 'fr') { %>
+                        <a href="/fr" class="language-option" data-lang="fr">
+                            <span>🇫🇷</span> Français
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="copyright">
         <p><%=content.footerCopyright%></p>

@@ -34,5 +34,61 @@
         <li><a href="/<%=lang%>/partners"><%=content.navSponsors%></a></li>
         <li><a href="/<%=lang%>/volunteers"><%=content.navVolunteers%></a></li>
         <li><a href="/<%=lang%>/contact"><%=content.navContact%></a></li>
+        <li class="language-selector">
+            <div class="language-dropdown">
+                <button class="language-dropbtn">
+                    <%
+                    let currentLangFlag = '';
+                    switch(lang) {
+                        case 'en':
+                            currentLangFlag = '🇬🇧';
+                            break;
+                        case 'de':
+                            currentLangFlag = '🇩🇪';
+                            break;
+                        case 'fr':
+                            currentLangFlag = '🇫🇷';
+                            break;
+                        default:
+                            currentLangFlag = '🌐';
+                    }
+                    %>
+                    <%= currentLangFlag %>
+                </button>
+                <div class="language-dropdown-content">
+                    <% if (lang !== 'en') { %>
+                        <a href="/en" class="language-option" data-lang="en">
+                            <span>🇬🇧</span> English
+                        </a>
+                    <% } %>
+                    <% if (lang !== 'de') { %>
+                        <a href="/de" class="language-option" data-lang="de">
+                            <span>🇩🇪</span> Deutsch
+                        </a>
+                    <% } %>
+                    <% if (lang !== 'fr') { %>
+                        <a href="/fr" class="language-option" data-lang="fr">
+                            <span>🇫🇷</span> Français
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+        </li>
     </ul>
 </nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the current path after the language prefix
+        const currentPath = window.location.pathname.replace(/^\/(en|de|fr)/, '');
+
+        // Select all language switch links in both header and footer
+        const languageLinks = document.querySelectorAll('.language-dropdown-content a');
+
+        // Update each language link to include the current path
+        languageLinks.forEach(link => {
+            const lang = link.getAttribute('data-lang');
+            link.href = `/${lang}${currentPath}`;
+        });
+    });
+</script>
