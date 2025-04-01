@@ -52,12 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
 
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('open');
-        nav.classList.toggle('open');
-    });
+    hamburger.addEventListener('click', toggleSidebar)
 
     // Close mobile menu when clicking a link
     const navLinks = document.querySelectorAll('nav ul li a');
@@ -78,3 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 })
+
+function toggleSidebar(){
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+    hamburger.classList.toggle('open');
+    nav.classList.toggle('open');
+}

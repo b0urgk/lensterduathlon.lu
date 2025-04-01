@@ -423,17 +423,8 @@
 .info-image img:hover {
     transform: scale(1.05);
 }
-/* Responsive Styles */
-@media (max-width: 768px) {
 
-
-    .info-image-right{
-        transform: translateX(0px);
-    }
-    .info-image-left{
-        transform: translateX(0px);
-    }
-
+@media (max-width: 1200px) {
     .hero {
         padding: 3rem 1rem;
         justify-content: center;
@@ -450,6 +441,19 @@
         background: rgba(60, 139, 188, 0.44);
         box-shadow: none;
     }
+
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+
+    .info-image-right{
+        transform: translateX(0px);
+    }
+    .info-image-left{
+        transform: translateX(0px);
+    }
+
     .hero-content p {
         display: none;
     }
