@@ -174,47 +174,62 @@ nav ul li > a:hover {
     top: 8px;
     transform: rotate(-135deg);
 }
+/* Fix for the dropdown menu */
 .dropdown {
-    float: left;
-    overflow: hidden;
+    position: relative;
+    display: inline-block;
 }
 
 .dropdown .dropbtn {
     font-size: 16px;
     border: none;
     outline: none;
-    color: white;
-    background-color: inherit;
+    color: var(--navbar-text); /* Match your navbar text color */
+    padding: 6px 12px;
+    background-color: transparent;
     font-family: inherit;
     margin: 0;
-    font-weight: bold;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.dropdown:hover .dropbtn {
+    color: var(--light-text);
+    background-color: var(--navbar-hover);
+    transform: translateY(-3px);
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: var(--primary-color);
-    min-width: 160px;
+    min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .dropdown-content a {
-    float: none;
     color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
+    transition: all 0.3s;
 }
 
 .dropdown-content a:hover {
     background-color: var(--navbar-hover);
 }
 
+/* This is the critical part that makes the dropdown appear */
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 
 /* Footer */
 footer {
@@ -379,7 +394,132 @@ nav ul li {
 }
 
 /* Mobile Styles */
-@media (max-width: 1400px) {
+/* Replace your existing @media (max-width: 1400px) section at the bottom of main.css with this updated version */
+
+/* Responsive Styles */
+@media (max-width: 1400px){
+    /* Fix centered alignment in mobile view */
+    header {
+        flex-direction: column;
+        padding: 1rem;
+        align-items: center;
+        width: 100%; /* Full width on mobile */
+    }
+
+    .hamburger {
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    nav {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+        background: var(--navbar-bg);
+    }
+
+    nav.open {
+        max-height: 500px; /* Increased to ensure all items fit */
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav ul li > a {
+        display: block;
+        padding: 10px;
+        border-radius: 0;
+        background: none;
+    }
+
+    nav ul li > a:hover {
+        transform: none;
+        padding-left: 15px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Improve dropdown in mobile */
+    .dropdown {
+        width: 100%;
+        padding-left: 0 !important; /* Override existing padding */
+    }
+
+    .dropdown .dropbtn {
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        border-radius: 0;
+        position: relative;
+    }
+
+    /* Add indicator for dropdown */
+    .dropdown .dropbtn::after {
+        content: "▼";
+        position: absolute;
+        right: 15px;
+        font-size: 12px;
+    }
+
+    .dropdown-content {
+        display: none;
+        width: 100%;
+        position: static;
+        box-shadow: none;
+        background-color: rgba(0,0,0,0.1);
+    }
+
+    /* Override hover behavior on mobile */
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .dropdown-content a {
+        padding-left: 20px;
+        color: white !important; /* Ensure text is visible */
+    }
+
+    .logo-container {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Hide desktop logo and show mobile logo at bottom */
+    .desktop-logo {
+        display: none !important;
+    }
+
+    .edge-logo-container {
+        display: block !important;
+        width: 88px;
+    }
+    .edge-logo-container .house-shape{
+        width: 88px;
+    }
+    .edge-logo-container .house-shape:before{
+        border-left: 44px solid transparent;
+        border-right: 44px solid transparent;
+    }
+
+    .footer-column {
+        flex: 100%;
+        margin-right: 0;
+    }
+
     /* Hide desktop language selector */
     nav .language-selector {
         display: none;
@@ -420,94 +560,5 @@ nav ul li {
     /* Ensure languages are always visible in footer */
     footer .language-dropdown-content {
         display: flex;
-    }
-}
-
-/* Ensure desktop version is visible */
-@media (min-width: 1400px) {
-    footer .language-selector {
-        display: none;
-    }
-}
-
-/* Responsive Styles */
-@media (max-width: 1400px){
-    header {
-        flex-direction: column;
-        padding: 1rem;
-        align-items: flex-start;
-        width: 100%; /* Full width on mobile */
-    }
-    .hamburger {
-        display: block;
-    }
-
-    nav {
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease-out;
-        background: var(--navbar-bg);
-    }
-
-    nav.open {
-        max-height: 300px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        margin: 0;
-        text-align: left;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    nav ul li > a {
-        display: block;
-        padding: 10px;
-        border-radius: 0;
-        background: none;
-    }
-
-    nav ul li > a:hover {
-        transform: none;
-        padding-left: 15px;
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .dropdown{
-        padding-left: 10px;
-    }
-    .logo-container {
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Hide desktop logo and show mobile logo at bottom */
-    .desktop-logo {
-        display: none !important;
-    }
-
-    .edge-logo-container {
-        display: block !important;
-        width: 88px;
-    }
-    .edge-logo-container .house-shape{
-        width: 88px;
-    }
-    .edge-logo-container .house-shape:before{
-        border-left: 44px solid transparent;
-        border-right: 44px solid transparent;
-    }
-
-    .footer-column {
-        flex: 100%;
-        margin-right: 0;
     }
 }

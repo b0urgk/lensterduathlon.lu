@@ -75,6 +75,44 @@ document.addEventListener('DOMContentLoaded', function() {
             nav.classList.remove('open');
         }
     });
+    // Add dropdown menu toggle for mobile
+    const dropdownBtn = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+
+    // Only attach this event on mobile
+    if (window.innerWidth <= 1400) {
+        dropdownBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Toggle dropdown visibility
+            if (dropdownContent.style.display === 'block') {
+                dropdownContent.style.display = 'none';
+            } else {
+                dropdownContent.style.display = 'block';
+            }
+        });
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.matches('.dropbtn') && window.innerWidth <= 1400) {
+            if (dropdownContent.style.display === 'block') {
+                dropdownContent.style.display = 'none';
+            }
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 1400) {
+            // Reset dropdown display for desktop
+            dropdownContent.style.display = '';
+        } else {
+            // Ensure dropdown is hidden on mobile until clicked
+            dropdownContent.style.display = 'none';
+        }
+    });
 })
 
 function toggleSidebar(){
