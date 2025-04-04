@@ -446,6 +446,24 @@
 /* Responsive Styles */
 @media (max-width: 768px) {
 
+    .hero-content:after{
+        content: '';
+        background-image: url('/public/images/sponsor-greisch-steve.foyer.png');
+        background-size: cover;
+        width: 125px;
+        height: 100px;
+        display: inline-block;
+        background-color: white; /* This adds the white background */
+        border-radius: 18px;
+        position: absolute;
+        right: 5%;
+        top: 45%;
+    }
+
+    .hero-content .btn{
+        margin-top: 2.5rem;
+    }
+
 
     .info-image-right{
         transform: translateX(0px);
