@@ -47,7 +47,7 @@ module.exports = {
 
         const files = fs.readdirSync('./src/public/images/');
         const filteredFiles = files.filter(file => file.startsWith('sponsor-'));
-        const content = {};
+        const content = res.locals.contents.partners;
 
         res.render('sponsors.ejs', { title: 'Sponsors', lang: res.locals.lang, pageStaticFiles: 'partners', pageName: 'sponsors', user: req.user, sponsorImages: filteredFiles, content })
     },
@@ -72,7 +72,7 @@ module.exports = {
     },
     tba:  (req, res, next) =>{
         const files = fs.readdirSync('./src/public/images/');
-        const content = {};
+        const content = res.locals.contents.partners;
 
         res.render('tba.ejs', { title: 'Long Distance Info', lang: res.locals.lang, pageStaticFiles: null, pageName: 'tba', user: req.user, content })
     },
