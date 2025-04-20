@@ -1,0 +1,89 @@
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h2><%=content.shortDistanceTitle%></h2>
+        <p><%=content.shortDistanceDescription%></p>
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+            <a href="#overview" class="btn"><%=content.courseDetailsButton%></a>
+            <a href="#gps" class="btn"><%=content.gpsDownloadButton%></a>
+        </div>
+    </div>
+</section>
+
+<!-- Overview Section -->
+<section id="overview">
+    <div class="container">
+        <div class="section-header">
+            <h2><%=content.courseOverviewTitle%></h2>
+        </div>
+        <div class="card">
+            <div class="race-detail">
+                <h3><%=content.generalInfoTitle%></h3>
+
+                <div class="race-info-grid">
+                    <div class="info-box">
+                        <h4><%=content.surfaceTitle%></h4>
+                        <p><%=content.surfaceDescription%></p>
+                    </div>
+                    <div class="info-box">
+                        <h4><%=content.difficultyTitle%></h4>
+                        <p><strong><%=content.difficultyDescription%></strong></p>
+                    </div>
+                    <div class="info-box">
+                        <h4><%=content.transitionTitle%></h4>
+                        <p><%=content.transitionDescription%></p>
+                    </div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <h4><%=content.firstRunTitle%></h4>
+                        <p><%=content.firstRunDistance%></p>
+                        <p style="font-size: 1rem; font-weight: normal"><%=content.firstRunLaps%></p>
+                    </div>
+                    <div class="stat-box">
+                        <h4><%=content.cyclingTitle%></h4>
+                        <p><%=content.cyclingDistance%></p>
+                        <p style="font-size: 1rem; font-weight: normal"><%=content.cyclingLaps%></p>
+                    </div>
+                    <div class="stat-box">
+                        <h4><%=content.secondRunTitle%></h4>
+                        <p><%=content.secondRunDistance%></p>
+                        <p style="font-size: 1rem; font-weight: normal"><%=content.secondRunLaps%></p>
+                    </div>
+                    <div class="stat-box">
+                        <h4><%=content.elevationTitle%></h4>
+                        <p><%=content.elevationAmount%></p>
+                    </div>
+                </div>
+
+                <div class="key-points">
+                    <h4><%=content.keyNotesTitle%></h4>
+                    <ul class="key-point-list">
+                        <li><%=content.keyNoteHelmet%></li>
+                        <li><%=content.keyNoteDrafting%></li>
+                        <li><%=content.keyNoteTiming%></li>
+                        <li><%=content.keyNoteTransition%></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="gps">
+    <div class="container">
+        <div class="section-header">
+            <h2><%=content.coursesTitle%></h2>
+        </div>
+        <div class="card">
+            <div class="race-detail">
+                <h3><%=content.cyclingRouteTitle%></h3>
+                <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3348368998089274350" data-units="metric" data-style="standard" data-terrain="3d" data-map-hash="12.61/49.71493/6.27051" data-from-embed="true"></div><script src="https://strava-embeds.com/embed.js"></script>            </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="race-detail">
+                <h3><%=content.runningRouteTitle%></h3>
+        </div>
+    </div>
+</section>

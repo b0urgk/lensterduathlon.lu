@@ -70,6 +70,11 @@ module.exports = {
 
         res.render('middleDistance.ejs', { title: 'Middle Distance Info', lang: res.locals.lang, pageStaticFiles: 'long-distance', pageName: 'long-distance', user: req.user, content })
     },
+    miniDistance: (req, res,next) => {
+      const content = req.locals.contents.miniDistance;
+
+      res.render('miniDistance.ejs', { title: 'Kids A/B Info', lang: res.locals.lang, pageStaticFiles: 'mini-distance', pageName: 'mini-distance', user: req.user, content });
+    },
     tba:  (req, res, next) =>{
         const files = fs.readdirSync('./src/public/images/');
         const content = res.locals.contents.partners;

@@ -20,7 +20,7 @@ router.get('/:lang(en|de|fr)?/races', indexController.raceInfos)
 router.get('/:lang(en|de|fr)?/races/long-distance', indexController.longDistance)
 router.get('/:lang(en|de|fr)?/races/middle-distance', indexController.middleDistance)
 router.get('/:lang(en|de|fr)?/races/short-distance', indexController.shortDistance)
-router.get('/:lang(en|de|fr)?/races/kids-distance', indexController.tba)
+router.get('/:lang(en|de|fr)?/races/kids-distance', indexController.miniDistance)
 
 
 router.get('/:lang(en|de|fr)?/privacy-policy', indexController.privacyPolicy);
