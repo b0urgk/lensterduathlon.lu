@@ -1,7 +1,7 @@
 <!-- Hero Section -->
 <section class="hero">
     <div class="container">
-        <h2> <% if(lang === "fr") { %> Course 1 Parcours Duathlon <%} else if (lang==="de"){%> Race 1 Duathlon Strecke <%}%> </h2>
+        <h2> <%=content.title%> </h2>
         <p> <% if(lang === "fr") { %> Un parcours exigeant avec 5 km de course à pied, 19 km de cyclisme et 2,5 km de course à pied à travers des paysages pittoresques et un terrain difficile. <%} else if (lang==="de"){%> Ein anspruchsvoller Kurs mit 5 km Laufen, 19 km Radfahren und 2.5 km Laufen durch malerische Landschaften und herausforderndes Terrain. <%}else if (lang==="en"){%> A challenging course with 5 km running, 19 km cycling, and 2.5 km running through picturesque landscapes and challenging terrain. <%}%></p>
         <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
             <a href="#overview" class="btn"><%=content.courseDetailsButton%></a>

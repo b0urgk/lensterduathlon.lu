@@ -8,6 +8,7 @@
         <ul class="quick-nav-list">
             <li><a href="#timetable"><%=content.quickNavTimeTable%></a></li>
             <li><a href="#anfahrt"><%=content.quickNavDirections%></a></li>
+            <li><a href="#shower"><%=content.quickNavShower%></a></li>
             <li><a href="#regeln"><%=content.quickNavRules%></a></li>
             <li><a href="#wertung"><%=content.quickNavScoring%></a></li>
             <li><a href="#registration"><%=content.quickNavRegistration%></a></li>
@@ -39,11 +40,11 @@
                     </thead>
                     <tbody>
                     <tr style="background-color: rgba(230, 250, 245, 0.5);">
-                        <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 600;">8h00</td>
+                        <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 600;"><%=content.timeTableRaceKitTime%></td>
                         <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;"><%=content.timeTableRaceKit%></td>
                     </tr>
                     <tr >
-                        <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 600;">8h15</td>
+                        <td style="padding: 12px 15px; border-bottom: 1px solid #ddd; font-weight: 600;"><%=content.timeTableCheckInTime%></td>
                         <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;"><%=content.timeTableCheckIn%></td>
                     </tr>
                     <tr style="background-color: rgba(230, 250, 245, 0.5);">
@@ -85,6 +86,11 @@
                     </tbody>
                 </table>
             </div>
+	    <ul style="padding-left: 1rem; padding-top: 1rem;list-style: none;">
+		<li style="list-style-type: '&#8212; '; font-weight: bold;">
+			<%=content.checkInInfo%>
+		</li>
+	    </ul>
         </div>
     </div>
 </section>
@@ -104,6 +110,22 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3200.9618741743056!2d6.2669433269042205!3d49.71872844966358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47955b0d1d89822f%3A0x59128ffbd292a4ad!2sJunglinster%20Park%20%26%20Ride!5e1!3m2!1sde!2slu!4v1741029683079!5m2!1sde!2slu" width="100%" height="400" style="border:0; background-color: var(--light-grey);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
+    </div>
+</section>
+
+
+<!-- Duschen Section -->
+<section id="shower">
+    <div class="container">
+        <div class="section-header">
+            <h2><%=content.showerFacilities%></h2>
+        </div>
+        <div class="card">
+
+            <div style="margin-top: 20px;">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d765.0556585338151!2d6.254326269676966!3d49.71346786538876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDnCsDQyJzQ4LjUiTiA2wrAxNScxNy45IkU!5e1!3m2!1sde!2slu!4v1746091390667!5m2!1sde!2slu" width="100%" height="400" style="border:0; background-color: var(--light-grey);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	    </div>  
+	</div>
     </div>
 </section>
 
@@ -306,6 +328,14 @@
                     <li style="padding: 0.3rem 0; display: flex; align-items: flex-start;">
                         <span style="color: var(--secondary-color); font-weight: bold; margin-right: 10px;">•</span>
                         <%=content.distancesNotesDetailedMaps%>
+                    </li>
+		    <li style="padding: 0.3rem 0; display: flex; align-items: flex-start;">
+                        <span style="color: var(--secondary-color); font-weight: bold; margin-right: 10px;"> • </span>
+			<%=content.relayInfoTeamSize%>
+		    </li>
+                    <li style="padding: 0.3rem 0; display: flex; align-items: flex-start;">
+                        <span style="color: var(--secondary-color); font-weight: bold; margin-right: 10px;">•</span>
+                        <%=content.relayInfoRelayPoint%>
                     </li>
                 </ul>
             </div>
