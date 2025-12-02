@@ -25,7 +25,7 @@
 
 <!-- Header Section -->
 <header>
-    <%- include('../partials/header.ejs') %>
+    <%- include('../partials/header.ejs', { content: locals.content || locals.navContent || {}, lang: locals.lang || 'en' }) %>
 </header>
 
 <main>

@@ -2,7 +2,7 @@ const Event = require('../models/Event');
 module.exports = async (req, res, next) => {
     try{
         const currentYear = new Date().getFullYear();
-        const event = await Event.findOne({ eventEdition: currentYear });
+        const event = await Event.findOne({ eventEdition: '2026' });
 
         if (!event) {
             console.log('No events found for edition:', currentYear

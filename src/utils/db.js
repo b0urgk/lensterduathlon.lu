@@ -7,10 +7,10 @@ const debug = require('debug')('app:mongoose-connection')
 // Connect to MongoDB
 const connectDB = async () => {
     try {
-        await mongoose.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PWD}@${process.env.MONGO_HOST}/${process.env.MONGO_DB_NAME}?authSource=admin`, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PWD}@${process.env.MONGO_HOST}/${process.env.MONGO_DB_NAME}?authSource=admin`);
         debug('MongoDB connected successfully');
     } catch (error) {
-        debug('Error connecting to MongoDB:', error.message);
+        console.error('Error connecting to MongoDB:', error.message);
         process.exit(1);  // Exit the process if there's an error
     }
 };

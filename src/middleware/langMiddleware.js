@@ -31,6 +31,9 @@ module.exports = async (req, res, next) => {
         res.locals.contents = contents;
         res.locals.lang = lang;
 
+        // Provide navigation content for header/footer (use raceInfo as it has all nav keys)
+        res.locals.navContent = contents.raceInfo || {};
+
         next(); // Proceed to the next middleware or route
     } catch (err) {
         console.error('Error fetching content:', err);

@@ -16,8 +16,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 app.set('layout', 'layouts/default.ejs');
 
-connectDB();
-
 const apiRouter = require('./routes/api');
 app.use('/api', apiRouter);
 const indexRouter = require('./routes/index');
@@ -26,5 +24,16 @@ app.use('/', indexRouter);
 app.use((req, res, next) => {
     res.status(404).send('Not Found');
 });
+
+const PORT = process.env.PORT || 3000;
+
+const startServer = async () => {
+    await connectDB();
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+};
+
+startServer();
 
 module.exports = app;
