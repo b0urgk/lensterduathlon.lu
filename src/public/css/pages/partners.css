@@ -1,9 +1,88 @@
-
-.sponsor-logo{
-    max-width: 15rem;
+.sponsors-page {
+    padding: 8.5rem 1.5rem 4rem;
+    background: linear-gradient(135deg, #e0f7fa 0%, #e0f2f1 100%);
+    min-height: 60vh;
 }
-.sponsor-container{
+
+.sponsors-page__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sponsors-page__title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.sponsors-page__title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.sponsors-grid__item {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: 160px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sponsors-grid__item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.sponsors-grid__item .sponsor-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.sponsors-grid__item:hover .sponsor-logo {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1400px) {
+    .sponsors-page {
+        padding-top: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .sponsors-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+
+    .sponsors-grid__item {
+        height: 130px;
+        padding: 1rem;
+    }
+
+    .sponsors-page__title {
+        font-size: 2rem;
+    }
 }

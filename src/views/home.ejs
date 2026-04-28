@@ -34,10 +34,10 @@
     <h2><%=content.sponsorsTitle%></h2>
     <div class="sponsors-slider">
         <div class="sponsors-track">
-            <% sponsorImages.forEach(function (file){ %>
+            <% sponsorImages.forEach(function (sponsor){ %>
                 <div class="sponsor-item">
-                    <a href="https://<%= file.split('-').splice(1).join('-').replace(/\.(jpg|jpeg|png|gif|bmp|webp|tiff|svg)$/i, '')%>.lu">
-                        <img src="/public/images/<%= file %>" alt="<%= file %>" class="sponsor-logo">
+                    <a href="<%= sponsor.url %>" target="_blank" rel="noopener noreferrer">
+                        <img src="/public/images/<%= sponsor.file %>" alt="<%= sponsor.file %>" class="sponsor-logo">
                     </a>
                 </div>
             <% }) %>

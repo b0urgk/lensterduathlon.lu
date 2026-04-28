@@ -6,15 +6,31 @@ const mergeContent = (pageContent, navContent) => {
     return { ...navContent, ...pageContent };
 };
 
+// Sponsors whose URL doesn't follow the `<slug>.lu` filename convention.
+const SPONSOR_URL_OVERRIDES = {
+    'sponsor-mwd.svg': 'https://marcwilmes.com/',
+};
+
+const buildSponsors = () => {
+    return fs.readdirSync('./src/public/images/')
+        .filter(file => file.startsWith('sponsor-'))
+        .map(file => {
+            if (SPONSOR_URL_OVERRIDES[file]) {
+                return { file, url: SPONSOR_URL_OVERRIDES[file] };
+            }
+            const slug = file.split('-').slice(1).join('-')
+                .replace(/\.(jpg|jpeg|png|gif|bmp|webp|tiff|svg)$/i, '');
+            return { file, url: `https://${slug}.lu` };
+        });
+};
+
 module.exports = {
     index: (req, res, next) => {
         const navContent = res.locals.navContent || {};
         const pageContent = res.locals.contents.home || {};
         const content = mergeContent(pageContent, navContent);
         const eventData = res.locals.eventData;
-        const files = fs.readdirSync('./src/public/images/');
-        const filteredFiles = files.filter(file => file.startsWith('sponsor-'));
-        res.render('home.ejs', { title: 'Home', lang: res.locals.lang, pageStaticFiles: 'home', pageName: 'Home' , user: req.user, eventData ,  content, sponsorImages: filteredFiles })
+        res.render('home.ejs', { title: 'Home', lang: res.locals.lang, pageStaticFiles: 'home', pageName: 'Home' , user: req.user, eventData ,  content, sponsorImages: buildSponsors() })
     },
     login: (req, res, next) => {
         if(req.user){
@@ -62,14 +78,11 @@ module.exports = {
     },
 
     sponsors: (req, res, next) => {
-
-        const files = fs.readdirSync('./src/public/images/');
-        const filteredFiles = files.filter(file => file.startsWith('sponsor-'));
         const navContent = res.locals.navContent || {};
         const pageContent = res.locals.contents.sponsors || {};
         const content = mergeContent(pageContent, navContent);
 
-        res.render('sponsors.ejs', { title: 'Sponsors', lang: res.locals.lang, pageStaticFiles: 'partners', pageName: 'sponsors', user: req.user, sponsorImages: filteredFiles, content })
+        res.render('sponsors.ejs', { title: 'Sponsors', lang: res.locals.lang, pageStaticFiles: 'partners', pageName: 'sponsors', user: req.user, sponsorImages: buildSponsors(), content })
     },
     shortDistance:  (req, res, next) =>{
         const navContent = res.locals.navContent || {};
