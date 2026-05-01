@@ -76,15 +76,21 @@
             <h2><%=content.coursesTitle%></h2>
         </div>
         <div class="card">
-            <div class="race-detail">
-                <h3><%=content.cyclingRouteTitle%></h3>
-                <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3331733626759426250" data-units="metric" data-full-width="true" data-style="standard" data-terrain="3d" data-map-hash="11.78/49.71445/6.28211" data-from-embed="true"></div><script src="https://strava-embeds.com/embed.js"></script>
-            </div>
-        </div>
-        <div class="card">
-            <div class="race-detail">
-                <h3><%=content.runningRouteTitle%></h3>
-                <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3332801290377495282" data-units="metric" data-full-width="true" data-style="standard" data-terrain="3d" data-map-hash="12.89/49.72271/6.26529" data-from-embed="true"></div><script src="https://strava-embeds.com/embed.js"></script>
+            <div class="race-detail course-pdf">
+                <div class="course-pdf__actions">
+                    <a href="/public/downloads/strecken-elite-2026.pdf"
+                       class="info-download__btn"
+                       download
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span><%= content.coursesDownload || 'Strecken herunterladen (PDF)' %></span>
+                    </a>
+                </div>
+                <iframe class="course-pdf__viewer"
+                        src="/public/downloads/strecken-elite-2026.pdf"
+                        title="<%= content.coursesTitle %>"
+                        loading="lazy"></iframe>
             </div>
         </div>
     </div>

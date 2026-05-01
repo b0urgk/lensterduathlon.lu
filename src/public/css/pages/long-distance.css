@@ -291,3 +291,56 @@ section {
 .gallery-item:hover img {
     transform: scale(1.05);
 }
+
+/* Course PDF viewer */
+.course-pdf {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.course-pdf__actions {
+    display: flex;
+    justify-content: center;
+}
+
+.course-pdf .info-download__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.course-pdf .info-download__btn i {
+    font-size: 1.15rem;
+}
+
+.course-pdf .info-download__btn:hover,
+.course-pdf .info-download__btn:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+    filter: brightness(1.05);
+}
+
+.course-pdf__viewer {
+    width: 100%;
+    height: 80vh;
+    min-height: 480px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    background-color: var(--light-grey);
+}
+
+@media (max-width: 768px) {
+    .course-pdf__viewer {
+        height: 65vh;
+        min-height: 360px;
+    }
+}

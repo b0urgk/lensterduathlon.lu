@@ -22,6 +22,25 @@
     <h1 style="color: var(--primary-color); font-size: 2.5rem; position: relative"> <%=content.raceInfoTitle%> </h1>
 </div>
 
+<div class="info-download">
+    <a href="/public/downloads/infoblatt-rtv-2026-05-03.pdf"
+       class="info-download__btn"
+       download
+       target="_blank"
+       rel="noopener noreferrer">
+        <i class="fa-solid fa-file-pdf"></i>
+        <span><%= content.infoSheetDownload || 'Infoblatt herunterladen (PDF)' %></span>
+    </a>
+    <a href="/public/downloads/venue.pdf"
+       class="info-download__btn"
+       download
+       target="_blank"
+       rel="noopener noreferrer">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span><%= content.venueDownload || 'Venue Plan herunterladen (PDF)' %></span>
+    </a>
+</div>
+
 <!-- Timetable Section -->
 <section id="timetable">
     <div class="container">
