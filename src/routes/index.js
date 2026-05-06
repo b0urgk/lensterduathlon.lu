@@ -31,7 +31,7 @@ router.get('/:lang(en|de|fr)?/volunteers', indexController.tba)
 
 router.get('/:lang(en|de|fr)?/partners', indexController.sponsors)
 
-router.get('/:lang(en|de|fr)?/archive', indexController.tba)
+router.get('/:lang(en|de|fr)?/archive', indexController.archive)
 
 router.get('/:lang(en|de|fr)?/contact', indexController.contact)
 

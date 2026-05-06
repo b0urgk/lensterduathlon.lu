@@ -69,12 +69,43 @@ module.exports = {
 
     },
     archive: async (req, res, next) => {
-
         const allEvents = await Event.find({});
         const navContent = res.locals.navContent || {};
         const pageContent = res.locals.contents.archive || {};
         const content = mergeContent(pageContent, navContent);
-        res.render('archive.ejs', { title: 'Archive', lang: res.locals.lang, pageStaticFiles: 'md', pageName: 'archive',user: req.user, content, allEvents })
+
+        const archiveRoot = './src/public/archive';
+        const photoExt = /\.(jpe?g|png|gif|bmp|webp|tiff)$/i;
+        const yearDirs = fs.existsSync(archiveRoot)
+            ? fs.readdirSync(archiveRoot, { withFileTypes: true })
+                .filter(d => d.isDirectory() && /^\d{4}$/.test(d.name))
+                .map(d => d.name)
+            : [];
+
+        const eventByYear = {};
+        for (const event of allEvents) {
+            const yearMatch = String(event.eventEdition).match(/\d{4}/);
+            if (yearMatch) eventByYear[yearMatch[0]] = event;
+        }
+
+        const RESULTS_LINK_OVERRIDES = {
+            '2026': 'https://www.acn-timing.com/?lng=FR#/events/2141608132858859/ctx/20260503_junglinster/cms/CAP',
+        };
+
+        const yearSet = new Set([...yearDirs, ...Object.keys(eventByYear), ...Object.keys(RESULTS_LINK_OVERRIDES)]);
+        const archives = [...yearSet]
+            .sort((a, b) => Number(b) - Number(a))
+            .map(year => {
+                const dir = `${archiveRoot}/${year}`;
+                const photos = fs.existsSync(dir)
+                    ? fs.readdirSync(dir).filter(f => photoExt.test(f)).sort()
+                    : [];
+                const event = eventByYear[year] || null;
+                const resultsLink = RESULTS_LINK_OVERRIDES[year] || (event && event.resultsLink) || null;
+                return { year, photos, event, resultsLink };
+            });
+
+        res.render('archive.ejs', { title: 'Archive', lang: res.locals.lang, pageStaticFiles: 'archive', pageName: 'archive', user: req.user, content, archives })
     },
 
     sponsors: (req, res, next) => {

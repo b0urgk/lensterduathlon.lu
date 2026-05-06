@@ -1,19 +1,39 @@
-<% allEvents.forEach(event => { %>
+<section class="archive-page">
+    <div class="archive-page__inner">
+        <h1 class="archive-page__title"><%= content.archiveTitle || 'Archiv' %></h1>
 
-    <div class="info-section__container" id="archiveEdition-section-<%=event.eventEdition%>" style="margin-top: 5rem">
-        <div class="info-title__container">
-            <h2 class="info-title">
-                <%= event.eventEdition %>
-            </h2>
-        </div>
-        <hr>
-        <div class="info-description__container">
-            <p class="info-description">
-                <ul>
-                    <li> Results: <a href="<%=event.resultsLink%>"> <%= event.resultsLink.split('/')[2] %> </a> </li>
-                </ul>
-            </p>
-        </div>
+        <% archives.forEach(entry => { %>
+            <section class="archive-year" id="archive-<%= entry.year %>">
+                <div class="archive-year__header">
+                    <h2 class="archive-year__title"><%= entry.year %></h2>
+                    <% if (entry.resultsLink) { %>
+                        <a class="archive-year__results"
+                           href="<%= entry.resultsLink %>"
+                           target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-trophy"></i>
+                            <span><%= content.archiveResults || ({ en: 'Results', fr: 'Résultats', de: 'Resultate' }[lang] || 'Resultate') %></span>
+                        </a>
+                    <% } %>
+                </div>
+
+                <% if (entry.photos.length > 0) { %>
+                    <div class="archive-gallery">
+                        <% entry.photos.forEach(photo => { %>
+                            <a class="archive-gallery__item"
+                               href="/public/archive/<%= entry.year %>/<%= photo %>"
+                               target="_blank" rel="noopener noreferrer">
+                                <img src="/public/archive/<%= entry.year %>/<%= photo %>"
+                                     alt="<%= entry.year %> – <%= photo %>"
+                                     loading="lazy">
+                            </a>
+                        <% }) %>
+                    </div>
+                <% } else { %>
+                    <p class="archive-year__empty">
+                        <%= content.archiveNoPhotos || 'Noch keine Fotos verfügbar.' %>
+                    </p>
+                <% } %>
+            </section>
+        <% }) %>
     </div>
-
-<% }) %>
+</section>

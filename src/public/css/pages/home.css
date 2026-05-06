@@ -89,6 +89,25 @@
     left: 100%;
 }
 
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.btn--results {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.btn--results:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
 /* Countdown Section */
 .countdown {
     display: flex;
