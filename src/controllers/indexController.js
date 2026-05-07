@@ -97,8 +97,20 @@ module.exports = {
             .sort((a, b) => Number(b) - Number(a))
             .map(year => {
                 const dir = `${archiveRoot}/${year}`;
+                const originalsDir = `${dir}/_originals`;
                 const photos = fs.existsSync(dir)
-                    ? fs.readdirSync(dir).filter(f => photoExt.test(f)).sort()
+                    ? fs.readdirSync(dir)
+                        .filter(f => photoExt.test(f))
+                        .sort()
+                        .map(file => {
+                            const base = file.replace(photoExt, '');
+                            const originalPng = `${originalsDir}/${base}.png`;
+                            const thumbUrl = `/public/archive/${year}/${file}`;
+                            const fullUrl = fs.existsSync(originalPng)
+                                ? `/public/archive/${year}/_originals/${base}.png`
+                                : thumbUrl;
+                            return { file, thumbUrl, fullUrl };
+                        })
                     : [];
                 const event = eventByYear[year] || null;
                 const resultsLink = RESULTS_LINK_OVERRIDES[year] || (event && event.resultsLink) || null;

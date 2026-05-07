@@ -20,10 +20,10 @@
                     <div class="archive-gallery">
                         <% entry.photos.forEach(photo => { %>
                             <a class="archive-gallery__item"
-                               href="/public/archive/<%= entry.year %>/<%= photo %>"
+                               href="<%= photo.fullUrl %>"
                                target="_blank" rel="noopener noreferrer">
-                                <img src="/public/archive/<%= entry.year %>/<%= photo %>"
-                                     alt="<%= entry.year %> – <%= photo %>"
+                                <img src="<%= photo.thumbUrl %>"
+                                     alt="<%= entry.year %> – <%= photo.file %>"
                                      loading="lazy">
                             </a>
                         <% }) %>
