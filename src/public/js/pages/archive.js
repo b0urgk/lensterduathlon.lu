@@ -11,11 +11,15 @@
     let photos = [];
     let index = 0;
     let lastTrigger = null;
+    const preloaded = new Map(); // url -> Image, keeps refs alive so browser cache holds them
 
-    const preload = (url) => {
-        if (!url) return;
+    const preloadNext = () => {
+        if (photos.length < 2) return;
+        const nextUrl = photos[(index + 1) % photos.length];
+        if (preloaded.has(nextUrl)) return;
         const img = new Image();
-        img.src = url;
+        img.src = nextUrl;
+        preloaded.set(nextUrl, img);
     };
 
     const render = () => {
@@ -25,14 +29,12 @@
         lightbox.classList.add('is-loading');
         image.src = url;
         counter.textContent = `${index + 1} / ${photos.length}`;
-        // Preload neighbors for snappy nav
-        preload(photos[(index + 1) % photos.length]);
-        preload(photos[(index - 1 + photos.length) % photos.length]);
     };
 
     image.addEventListener('load', () => {
         image.classList.add('is-loaded');
         lightbox.classList.remove('is-loading');
+        preloadNext();
     });
 
     const open = (list, startIndex, trigger) => {
