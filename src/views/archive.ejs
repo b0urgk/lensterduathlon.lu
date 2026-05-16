@@ -17,10 +17,12 @@
                 </div>
 
                 <% if (entry.photos.length > 0) { %>
-                    <div class="archive-gallery">
-                        <% entry.photos.forEach(photo => { %>
+                    <div class="archive-gallery"
+                         data-photos="<%= JSON.stringify(entry.photos.map(p => p.fullUrl)) %>">
+                        <% entry.photos.forEach((photo, idx) => { %>
                             <a class="archive-gallery__item"
                                href="<%= photo.fullUrl %>"
+                               data-index="<%= idx %>"
                                target="_blank" rel="noopener noreferrer">
                                 <img src="<%= photo.thumbUrl %>"
                                      alt="<%= entry.year %> – <%= photo.file %>"
@@ -37,3 +39,20 @@
         <% }) %>
     </div>
 </section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+    <button class="lightbox__btn lightbox__btn--close" type="button" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button class="lightbox__btn lightbox__btn--prev" type="button" aria-label="Previous photo">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="lightbox__btn lightbox__btn--next" type="button" aria-label="Next photo">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    <div class="lightbox__stage">
+        <div class="lightbox__spinner" aria-hidden="true"></div>
+        <img class="lightbox__image" alt="">
+    </div>
+    <div class="lightbox__counter" aria-live="polite"></div>
+</div>
